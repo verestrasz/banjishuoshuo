@@ -1,0 +1,73 @@
+<html lang="zh-cn"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>留言板</title>
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <script src="./js/html5shiv.min.js"></script>
+    <script src="./js/respond.min.js"></script>
+    <style>
+        .navbar{
+            background: #212121;
+            padding: 0 100px;
+        }
+
+        body .navbar ul .li1:hover {
+            background: black;
+
+        }
+        body .navbar ul .li1 a:hover{
+            color: white;
+        }
+        .ul1{
+            float: right;
+        }
+        .d1{background:#eee; }
+        .container{width:80%;}
+        .form-control{
+            width: 40%;
+        }
+        .span1{color: red;width: 20%;background: lightpink;line-height: 40px;display: block;text-indent: 2em；}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">web1704 班级说说</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="li1"><a href="#">全部说说</a></li>
+                <li class="li1"><a href="#">我的说说</a></li>
+            </ul>
+            <ul class="nav navbar-nav ul1" >
+                <%if(username==undefined){%>
+                <li><a href="/regist">注册</a></li>
+                <li><a href="/login">登录</a></li>
+                <%}else{%>
+                <li><a href="#">欢迎<%=username%></a></li>
+                <li><a href="/back">退出</a></li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <form action="/touxiang" method="post" enctype="multipart/form-data">>
+        <h1>更改头像:</h1>
+        <div class="form-group">
+            <label for="exampleInputEmail1">用户头像</label>
+            <input type="file" id="exampleInputFile" name="file" multiple>
+        </div>
+        <button type="submit" class="btn btn-default" id="regist">上传</button>
+    </form>
+
+</div>
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.js"></script>
+</body>
+
+
+</html>
